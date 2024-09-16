@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;  
+    margin: 0;  
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e2e;
+    color: white;
+    height: 545px;
+    width: 350px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    margin-top: 2px;
+  }
+  
+  .heading-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .heading-area h2 {
+    margin: 0;
+    font-size: 1.8rem; /* Adjusting for mobile-friendly size */
+  }
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    cursor: pointer;
+    color: white;
+    font-size: 1.8rem;
+  }
+  
+  /* Content section with the image and text */
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Takes available space */
+    text-align: center;
+  }
+  
+  .illustration {
+    max-width: 60%; /* Keeps image responsive */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  h5 {
+    font-size: 1.2rem;
+    color: #d0d0d0;
+    margin: 0;
+  }
+  
+  /* Add note button */
+  .add-note {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color:#252525;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+  }
+  
+  .add-icon {
+    font-size: 2rem;
+    color: white;
+  }
+  
+  /* Responsive adjustments for small screens */
+  @media (max-width: 400px) {
+    .home {
+      padding: 10px;
+    }
+  
+    .heading-area h2 {
+      font-size: 1.5rem;
+    }
+  
+    .icon {
+      font-size: 1.5rem;
+    }
+  
+    .illustration {
+      max-width: 70%;
+    }
+  
+    h5 {
+      font-size: 1rem;
+    }
+  
+    .add-note {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .add-icon {
+      font-size: 1.8rem;
+    }
+  }
+  
