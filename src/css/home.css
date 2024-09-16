@@ -1,122 +1,128 @@
-body{
+   /* Main home container */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;  
-    margin: 0;  
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0; /* Light background for body */
 }
+
 .home {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #2e2e2e;
-    color: white;
-    height: 545px;
-    width: 350px;
-    padding: 25px;
-    box-sizing: border-box;
-    border-radius: 15px;
-    position: relative;
-    margin-top: 2px;
-  }
-  
-  .heading-area {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0 20px;
-  }
-  
-  .heading-area h2 {
-    margin: 0;
-    font-size: 1.8rem; /* Adjusting for mobile-friendly size */
-  }
-  
-  .icons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .icon {
-    cursor: pointer;
+    background-color: #2e2e2e; /* Dark background */
     color: white;
-    font-size: 1.8rem;
-  }
-  
-  /* Content section with the image and text */
-  .content {
+    height: 470px;
+    width: 320px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 0 0 15px 15px; /* Rounded corners at the bottom */
+}
+
+/* Content section with the image and text */
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1; /* Takes available space */
     text-align: center;
-  }
-  
-  .illustration {
-    max-width: 60%; /* Keeps image responsive */
+    margin-bottom: 10px;
+}
+
+.illustration {
+    max-width: 75%;
     height: auto;
     margin-bottom: 20px;
-  }
-  
-  h5 {
+}
+
+h5 {
     font-size: 1.2rem;
     color: #d0d0d0;
     margin: 0;
-  }
-  
-  /* Add note button */
-  .add-note {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+/* Add note button */
+.add-note {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color:#252525;
+    background-color: #2e2e2e; /* Floating action button color */
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
     cursor: pointer;
-  }
-  
-  .add-icon {
+    margin-bottom: 12px;
+}
+
+.add-icon {
     font-size: 2rem;
     color: white;
-  }
-  
-  /* Responsive adjustments for small screens */
-  @media (max-width: 400px) {
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 573px) {
     .home {
-      padding: 10px;
+        width: 90%;
+        height: auto; /* Allow flexible height */
+        max-height: 470px;
+        padding: 15px;
     }
-  
-    .heading-area h2 {
-      font-size: 1.5rem;
+
+    .content {
+        margin-bottom: 40px;
     }
-  
-    .icon {
-      font-size: 1.5rem;
-    }
-  
+
     .illustration {
-      max-width: 70%;
+        max-width: 70%;
     }
-  
-    h5 {
-      font-size: 1rem;
-    }
-  
+
     .add-note {
-      width: 50px;
-      height: 50px;
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
     }
-  
+
     .add-icon {
-      font-size: 1.8rem;
+        font-size: 1.8rem;
     }
-  }
-  
+}
+
+@media (max-width: 500px) {
+    .home {
+        width: 90%;
+        height: 400px;     
+        padding: 10px;
+        left: 8px;
+    }
+
+    .illustration {
+        max-width: 70%;
+        margin-top: 40px;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    .add-note {
+        bottom: 15px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .add-icon {
+        font-size: 1.6rem;
+    }
+}
