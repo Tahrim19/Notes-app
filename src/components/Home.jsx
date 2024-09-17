@@ -6,35 +6,46 @@ import { NotesContext } from './NotesContext';
 
 export default function Home() {
     const navigate = useNavigate();
-    const {notes} = useContext(NotesContext);
+    const { notes } = useContext(NotesContext);
 
     const handleAddNote = () => {
         navigate('/editor');
-    }
+    };
 
-  return (
-    <>
+    const pastelColors = [
+        "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", 
+        "#E6B3FF", "#B3FFEC", "#FFB3E6", "#FFD1B3", "#FFF0BA"
+    ];
+
+    return (
+      <>
         <div className='home'>
-      <div className='content'>
-        {notes.length === 0 ? (
-            <>
-            <img src='Notes-bro.png' alt='illustration' className='illustration'/>
-            <h5>Create your first note!</h5>
-            </>
-        ) : (
-            <div className='notes-list'>
-                {notes.map((note,index) => (
-                    <div key={index} className='note-item'>
-                        {note}
-                    </div>
-                ))}
-            </div>
-        )}
-      </div>
-      <div className='add-note' onClick={handleAddNote}>
-        <AddIcon className='add-icon'/>
-      </div>
-    </div>
-    </>
-  );
+          <div className='content'>
+              {notes.length === 0 ? (
+                  <>
+                      <img src='Notes-bro.png' alt='illustration' className='illustration'/>
+                      <h5>Create your first note!</h5>
+                  </>
+              ) : (
+                  <div className='notes-list'>
+                      {notes.map((note, index) => (
+                          <div
+                              key={index}
+                              className='note-item'
+                              style={{
+                                  backgroundColor: pastelColors[index % pastelColors.length]
+                              }}
+                          >
+                              {note}
+                          </div>
+                      ))}
+                  </div>
+              )}
+          </div>
+          <div className='add-note' onClick={handleAddNote}>
+              <AddIcon className='add-icon' />
+          </div>
+        </div>
+      </>
+    );
 }

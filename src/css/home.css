@@ -70,6 +70,31 @@ h5 {
     color: white;
 }
 
+
+
+/* Notes list */
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between notes */
+
+}
+
+/* Individual note item */
+.note-item {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    color: #2e2e2e; /* Dark text for better contrast */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for elevation */
+    transition: background-color 0.3s ease;
+    width: 260px;
+    height: 20px;
+}
+
+
 /* Responsive adjustments for small screens */
 @media (max-width: 573px) {
     .home {
