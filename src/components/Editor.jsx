@@ -15,7 +15,9 @@ export default function Editor() {
             navigate('/');
         }
         else{
-            console('note cannot be empty!')
+            console.log('note cannot be empty!');
+            setNote('');
+            navigate('/');
         }
     }
 
