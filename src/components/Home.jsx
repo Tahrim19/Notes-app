@@ -1,21 +1,20 @@
 import React, { useContext } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import '../css/home.css'; 
-import { useNavigate } from 'react-router-dom';
 import { NotesContext } from './NotesContext';
 
 export default function Home() {
-    const navigate = useNavigate();
     const { notes } = useContext(NotesContext);
 
-    const handleAddNote = () => {
-        navigate('/editor');
-    };
 
     const pastelColors = [
         "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", 
         "#E6B3FF", "#B3FFEC", "#FFB3E6", "#FFD1B3", "#FFF0BA"
     ];
+
+    const truncatedText = (note) => {
+        return note.length > 15? note.substring(0,15)+'...' : note ;
+    }
 
     return (
       <>
@@ -36,14 +35,11 @@ export default function Home() {
                                   backgroundColor: pastelColors[index % pastelColors.length]
                               }}
                           >
-                              {note}
+                              {truncatedText(note)}
                           </div>
                       ))}
                   </div>
               )}
-          </div>
-          <div className='add-note' onClick={handleAddNote}>
-              <AddIcon className='add-icon' />
           </div>
         </div>
       </>
