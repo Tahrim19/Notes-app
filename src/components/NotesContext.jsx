@@ -3,18 +3,30 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const NotesContext = createContext();
 
-// create provider component
-export const NotesProvider = ({children}) => {
-    const [notes, setNotes] = useLocalStorage('notes',[]);
-    // add new note
+export const NotesProvider = ({ children }) => {
+    const [notes, setNotes] = useLocalStorage('notes', []);
+
+    // Add a new note
     const addNote = (newNote) => {
-        setNotes([...notes,newNote])
+        setNotes([...notes, newNote]);
     };
 
-    return(
-        <NotesContext.Provider value={{notes,addNote}}>
+    // Edit an existing note by index
+    const editNote = (index, updatedNote) => {
+        const updatedNotes = [...notes];
+        updatedNotes[index] = updatedNote;
+        setNotes(updatedNotes);
+    };
+
+    // Delete a note by index
+    const deleteNote = (index) => {
+        const updatedNotes = notes.filter((_, i) => i !== index);
+        setNotes(updatedNotes);
+    };
+
+    return (
+        <NotesContext.Provider value={{ notes, addNote, editNote, deleteNote }}>
             {children}
         </NotesContext.Provider>
     );
-
-}
+};

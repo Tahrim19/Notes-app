@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
-import AddIcon from '@mui/icons-material/Add';
+import React, { useContext, useState } from 'react';
 import '../css/home.css'; 
 import { NotesContext } from './NotesContext';
+import NoteMenu from './NoteMenu';
 
 export default function Home() {
     const { notes } = useContext(NotesContext);
-
+    const [anchorEl , setAnchorEl] = useState(null);
+    const [selectedIndex , setSelectedIndex] = useState(null);
 
     const pastelColors = [
         "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", 
@@ -14,6 +15,15 @@ export default function Home() {
 
     const truncatedText = (note) => {
         return note.length > 15? note.substring(0,15)+'...' : note ;
+    }
+
+    const handleNoteClick = (e, index) => {
+        setAnchorEl(e.currentTarget);
+        setSelectedIndex(index);
+    }
+
+    const handleCloseMenu = () => {
+        setAnchorEl(null);
     }
 
     return (
@@ -34,6 +44,7 @@ export default function Home() {
                               style={{
                                   backgroundColor: pastelColors[index % pastelColors.length]
                               }}
+                              onClick={(e) => handleNoteClick(e,index)}
                           >
                               {truncatedText(note)}
                           </div>
@@ -42,6 +53,12 @@ export default function Home() {
               )}
           </div>
         </div>
+        <NoteMenu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleCloseMenu}
+            index={selectedIndex}
+        />
       </>
     );
 }
